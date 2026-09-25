@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kedai Kopi Nusantara — Katalog Produk</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F6EFE4;
+    --espresso: #2E1B12;
+    --gold: #B9812E;
+    --leaf: #4B6B4F;
+    --card-bg: #FFFDF9;
+    --line: #E4D8C4;
+  }
+
+  body{
+    background-color: var(--bg);
+    color: var(--espresso);
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, .brand-font{
+    font-family: 'Fraunces', serif;
+  }
+
+  /* ===== Navbar ===== */
+  .navbar-kopi{
+    background-color: var(--espresso);
+  }
+  .navbar-kopi .navbar-brand{
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    color: var(--bg);
+    font-size: 1.4rem;
+  }
+  .navbar-kopi .nav-link{
+    color: #E9DFCF;
+  }
+  .navbar-kopi .nav-link:hover{
+    color: var(--gold);
+  }
+  .navbar-kopi .navbar-toggler{
+    border-color: var(--gold);
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    padding: 3.5rem 0 2.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero h1{
+    font-weight: 700;
+    line-height: 1.15;
+    font-size: 2rem;
+  }
+  .hero p{
+    max-width: 40ch;
+    color: #5A4A3B;
+  }
+  @media (min-width: 768px){
+    .hero h1{ font-size: 2.75rem; }
+  }
+  @media (min-width: 992px){
+    .hero h1{ font-size: 3.25rem; }
+  }
+
+  /* ===== Product card ===== */
+  .produk-card{
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .produk-img-wrap{
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #EFE6D6;
+  }
+  .produk-img-wrap img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .produk-body{
+    padding: 1rem 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .produk-nama{
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+  }
+  .produk-desk{
+    font-size: 0.88rem;
+    color: #6B5B4B;
+    flex-grow: 1;
+    margin-bottom: 0.75rem;
+  }
+  .produk-harga{
+    font-weight: 700;
+    color: var(--leaf);
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+  }
+  .btn-kopi{
+    background-color: var(--espresso);
+    color: var(--bg);
+    border: none;
+  }
+  .btn-kopi:hover{
+    background-color: var(--gold);
+    color: var(--espresso);
+  }
+
+  .kategori-label{
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    background-color: var(--espresso);
+    color: #D9CBB8;
+    margin-top: 3rem;
+  }
+  footer a{
+    color: #D9CBB8;
+    text-decoration: none;
+  }
+  footer a:hover{
+    color: var(--gold);
+  }
+  footer .footer-brand{
+    font-family: 'Fraunces', serif;
+    color: var(--bg);
+    font-size: 1.3rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Navbar Responsif (hamburger di mobile) ===== -->
+<nav class="navbar navbar-expand-lg navbar-kopi sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Kedai Kopi Nusantara</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Buka menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
+        <li class="nav-item"><a class="nav-link active" href="#beranda">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="#produk">Produk</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero" id="beranda">
+  <div class="container">
+    <h1>Biji kopi pilihan dari kebun-kebun Nusantara.</h1>
+    <p>Kami menyangrai kopi dari Gayo, Toraja, hingga Kintamani setiap minggu, dalam batch kecil supaya rasanya tetap segar sampai ke cangkirmu.</p>
+  </div>
+</header>
+
+<!-- ===== Katalog Produk ===== -->
+<main class="container py-5" id="produk">
+
+  <!-- Kategori 1: Kopi -->
+  <div class="kategori-label">Kategori 1 — Kopi</div>
+  <div class="row g-4 mb-5">
+
+    <!-- Produk 1 -->
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+      <div class="produk-card">
+        <div class="produk-img-wrap">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Roasted_coffee_beans.jpg?width=500" alt="Kopi Gayo Arabika" loading="lazy">
+        </div>
+        <div class="produk-body">
+          <div class="produk-nama">Gayo Arabika 200g</div>
+          <div class="produk-desk">Sangrai medium, aroma floral dengan sedikit rasa jeruk di akhir.</div>
+          <div class="produk-harga">Rp68.000</div>
+          <button class="btn btn-kopi w-100">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produk 2 -->
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+      <div class="produk-card">
+        <div class="produk-img-wrap">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Coffee_beans.jpg?width=500" alt="Kopi Toraja Robusta" loading="lazy">
+        </div>
+        <div class="produk-body">
+          <div class="produk-nama">Toraja Robusta 200g</div>
+          <div class="produk-desk">Sangrai gelap, body tebal, cocok untuk kopi tubruk atau susu.</div>
+          <div class="produk-harga">Rp55.000</div>
+          <button class="btn btn-kopi w-100">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produk 3 -->
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+      <div class="produk-card">
+        <div class="produk-img-wrap">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A_lot_of_coffee_beans.jpg?width=500" alt="Kopi Kintamani" loading="lazy">
+        </div>
+        <div class="produk-body">
+          <div class="produk-nama">Kintamani Arabika 200g</div>
+          <div class="produk-desk">Diproses honey process, rasa manis alami dengan asam lembut.</div>
+          <div class="produk-harga">Rp72.000</div>
+          <button class="btn btn-kopi w-100">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produk 4 -->
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+      <div class="produk-card">
+        <div class="produk-img-wrap">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Iced_cold_brew_coffee.jpg?width=500" alt="Kopi Susu Botolan" loading="lazy">
+        </div>
+        <div class="produk-body">
+          <div class="produk-nama">Kopi Susu Botolan 250ml</div>
+          <div class="produk-desk">Siap minum, dibuat dari cold brew dan susu segar lokal.</div>
+          <div class="produk-harga">Rp22.000</div>
+          <button class="btn btn-kopi w-100">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Kategori 2: Alat & Merchandise -->
+  <div class="kategori-label">Kategori 2 — Alat &amp; Merchandise</div>
+  <div class="row g-4">
+
+    <!-- Produk 5 -->
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+      <div class="produk-card">
+        <div class="produk-img-wrap">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Frenchpress-wiki.jpg?width=500" alt="French Press" loading="lazy">
+        </div>
+        <div class="produk-body">
+          <div class="produk-nama">French Press 600ml</div>
+          <div class="produk-desk">Kaca borosilikat tahan panas dengan saringan stainless steel.</div>
+          <div class="produk-harga">Rp135.000</div>
+          <button class="btn btn-kopi w-100">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produk 6 -->
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+      <div class="produk-card">
+        <div class="produk-img-wrap">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hario_V60_dripper_%2830519007832%29.jpg?width=500" alt="V60 Dripper Keramik" loading="lazy">
+        </div>
+        <div class="produk-body">
+          <div class="produk-nama">V60 Dripper Keramik</div>
+          <div class="produk-desk">Termasuk 40 lembar kertas filter dan satu server kaca 300ml.</div>
+          <div class="produk-harga">Rp98.000</div>
+          <button class="btn btn-kopi w-100">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produk 7 -->
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+      <div class="produk-card">
+        <div class="produk-img-wrap">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Instant_coffee.jpg?width=500" alt="Kopi Sachet" loading="lazy">
+        </div>
+        <div class="produk-body">
+          <div class="produk-nama">Sachet Praktis (isi 10)</div>
+          <div class="produk-desk">Racikan kopi dan gula aren, tinggal seduh dengan air panas.</div>
+          <div class="produk-harga">Rp35.000</div>
+          <button class="btn btn-kopi w-100">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produk 8 -->
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+      <div class="produk-card">
+        <div class="produk-img-wrap">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Perfect_Recipe_%28Unsplash%29.jpg?width=500" alt="Paket Hampers Kopi" loading="lazy">
+        </div>
+        <div class="produk-body">
+          <div class="produk-nama">Paket Hampers Kopi</div>
+          <div class="produk-desk">Satu set biji kopi, gelas keramik, dan buku catatan seduhan.</div>
+          <div class="produk-harga">Rp185.000</div>
+          <button class="btn btn-kopi w-100">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="py-4" id="kontak">
+  <div class="container">
+    <div class="row gy-3">
+      <div class="col-12 col-md-4">
+        <div class="footer-brand mb-2">Kedai Kopi Nusantara</div>
+        <p class="mb-0 small">Menyangrai dan mengirim kopi asli Indonesia sejak 2019.</p>
+      </div>
+      <div class="col-6 col-md-4" id="tentang">
+        <h6 class="text-white-50">Tautan</h6>
+        <ul class="list-unstyled small">
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#produk">Produk</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-4">
+        <h6 class="text-white-50">Hubungi Kami</h6>
+        <ul class="list-unstyled small">
+          <li>Medan, Sumatera Utara</li>
+          <li>hello@kedaikopinusantara.id</li>
+          <li>0812-3456-7890</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="border-secondary my-3">
+    <p class="small mb-0 text-center">&copy; 2026 Kedai Kopi Nusantara. Seluruh hak cipta dilindungi.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
